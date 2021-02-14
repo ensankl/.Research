@@ -112,7 +112,7 @@ class recipicture():
     def get_ingredients_list(self, index):
         r_str = r'(?<="ingredients": \[)(.*)'
         i_str = r'(.*)(?=\])'
-        s_str = r'FoodGroup: [0-9]+, FoodNumber: [0-9]+, RefNum: [0-9]+, '
+        s_str = r'FoodGroup: [0-9]+, FoodNumber: [a-zA-Z0-9]+, RefNum: [0-9]+, '
         moji = self.j[index]
         mo1 = re.search(r_str, moji)
         mo2 = re.search(i_str, mo1.group())
@@ -127,8 +127,8 @@ class recipicture():
 
 
 if __name__ == "__main__":
-    directory = r'C:/Users/jinto/Documents/.Research/data/sample'
-    name = '/niku.jpg'
+    directory = r'C:/Users/jinto/Documents/.Research/data'
+    name = '/tomato.jpg'
     thsh = 0.5
     print('THRESHOLD IS {}'.format(thsh))
     man = int(input('AUTO DETECT = 0\nUSE MANUALLY = 1\n'))
